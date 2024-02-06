@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}
+Editar PACIENTE
+{% endblock %}
+{% block content %}
+        <h1>Editar Dados de Pacientes</h1>
+        {% for row in rows %}
+        <form action="{{ url_for('editrec') }}" method="POST">
+            <h3 style="color:blue">ID Paciente: {{ row['rowid']}}</h3>
+            <input type="hidden" name="rowid" value="{{ row['rowid'] }}">
+            Name<br>
+            <input type="text" name="nm" value="{{ row['name'] }}"/><br>
+
+            Number<br>
+            <input type="text" name="nmb" value="{{row['number']}}"/><br>
+
+            Date<br>
+            <input type="date" name="date" value="{{ row['date'] }}"/><br>
+
+            City<br>
+            <input type="text" name="city" value="{{ row['city'] }}"/><br>
+
+            <input type="submit" value="Submit" /><br>
+        </form>
+        {% endfor %}
+{% endblock %}
